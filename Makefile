@@ -1,6 +1,6 @@
-FC ?= gfortran
-FFLAGS ?= -O2
-LDLIBS ?= -llapack -lblas
+FC = gfortran
+FFLAGS = -O2
+LDLIBS = -llapack -lblas
 
 .PHONY: all clean
 
