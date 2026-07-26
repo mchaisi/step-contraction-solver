@@ -1,27 +1,16 @@
 # Step Contraction Solver
 
-This repository contains a Fortran 90 implementation of a finite-volume solver for 2-D Stokes and Navier-Stokes flow through a symmetric step contraction. The program reads a parameter file, solves the pressure-correction system, and writes field and diagnostic output files for subsequent analysis.
+A Fortran finite-volume solver for 2-D Stokes and Navier–Stokes flow through a symmetric step contraction. The code reads a parameter file, solves the pressure-correction system, and writes field and diagnostic output files.
 
-## Code Ocean reproducibility
+## Overview
 
-This project is organized for reproducible execution in Code Ocean:
-
-- The build step is handled by the provided Makefile.
-- The default execution step is handled by the provided run script.
-- A sample input file is included in the repository so the workflow can be reproduced without additional setup.
-- The solver writes output files into the workspace root, making results easy to inspect after execution.
-
-## Repository contents
-
-- `src/step.f`: main Fortran source code.
-- `input/step.dat`: example input parameters.
-- `Makefile`: builds the executable named `step` using `gfortran`.
-- `run.sh`: executes the solver with the bundled input file.
+This repository contains source code and a reproducible example input for the step contraction solver. It is configured to build with `gfortran` and run using the provided `run.sh` wrapper.
 
 ## Requirements
 
-- A Fortran compiler such as `gfortran`
-- A Unix-like shell (`bash`)
+- `gfortran` or a compatible Fortran compiler
+- LAPACK and BLAS libraries (`-llapack -lblas`)
+- Unix-like shell (`bash`)
 
 ## Build
 
@@ -35,13 +24,13 @@ This produces the executable `step`.
 
 ## Run
 
-To run the solver with the bundled example input:
+Run the solver with the bundled example input:
 
 ```bash
 ./run.sh
 ```
 
-The script runs:
+The script executes:
 
 ```bash
 ./step < input/step.dat
@@ -49,7 +38,7 @@ The script runs:
 
 ## Expected outputs
 
-The solver generates output files such as:
+Example outputs created by the solver include:
 
 - `step2-u.dat`
 - `step2-v.dat`
@@ -59,15 +48,27 @@ The solver generates output files such as:
 - `Separation2.PsiMax`
 - `Wall2dws.vorticity`
 
-## Clean build artifacts
+These files are generated at runtime and should not be committed to the repository.
 
-To remove the generated executable:
+## Repository structure
+
+- `src/step.f` — main Fortran source file
+- `input/step.dat` — example parameter input file
+- `Makefile` — build instructions
+- `run.sh` — execution wrapper
+- `LICENSE.txt` — software license
+- `README.md` — project documentation
+- `.gitignore` — files to ignore in version control
+
+## Notes
+
+The input file uses uppercase keyword/value pairs as shown in `input/step.dat`. Modify parameters such as mesh size, timestep, Reynolds number, and output filenames by editing that file.
+
+## Clean
+
+Remove the compiled executable using:
 
 ```bash
 make clean
 ```
-
-## Notes
-
-The input file uses keyword-value pairs in uppercase, as shown in `input/step.dat`. You can modify the mesh size, timestep, Reynolds number, and output filenames by editing that file.
 

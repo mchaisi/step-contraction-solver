@@ -32,7 +32,8 @@ c
          USE Global_Var
          INTEGER :: ilin,len
          CHARACTER :: line*80,junk*80
-         CHARACTER(LEN=*), PARAMETER :: fname="step.dat"
+         CHARACTER(LEN=80) :: fname
+         LOGICAL :: exists
          INTEGER, PARAMETER :: ichan=100
 c
 c Initial default values
@@ -57,6 +58,17 @@ c Initial default values
         CheckIn=""
         CheckOut=""
 c
+        fname = 'step.dat'
+        INQUIRE(FILE=fname, EXIST=exists)
+        IF (.NOT. exists) THEN
+           fname = 'input/step.dat'
+           INQUIRE(FILE=fname, EXIST=exists)
+        END IF
+        IF (.NOT. exists) THEN
+           WRITE(*,*) 'ERROR: Could not find input file step.dat'
+           STOP
+        END IF
+
         OPEN(ichan,FILE=fname,STATUS="OLD",ERR=100)
 c
         ilin=0
