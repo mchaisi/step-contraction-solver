@@ -1,0 +1,21 @@
+{
+  "name": "Re=500 QUICK",
+  "scheme": "QUICK",
+  "reynolds_number": 500,
+  "classification": "near_steady",
+  "valid": true,
+  "final_step": 10000,
+  "final_residual": 3.1156e-6,
+  "residual_relative_tolerance": 0.2,
+  "max_abs_divergence": 1.0e-9,
+  "psi_min": 0.0,
+  "psi_max": 1.0042,
+  "psi_absolute_tolerance": 2.0e-3,
+  "field_relative_tolerance": 2.0e-4,
+  "field_absolute_tolerance": 2.0e-6,
+  "reference_psi_sha256": "fcb9cfa231c36505f084d3592434a3c0958cf4a7232a807b5059d2aa06bbe922",
+  "reference_div_sha256": "128ce803c78419164e5d7e34889ce4c8cfb65dcb11202746030684e3b2e007ec",
+  "reference_psi_7000_sha256": "72d1643e02d1dea47a773adaa1381183d15fe008b10f6db3f24ac7eab19cb1f4",
+  "mean_abs_psi_change_7000_to_10000": 1.3650648895e-6,
+  "max_abs_psi_change_7000_to_10000": 1.1e-5
+}

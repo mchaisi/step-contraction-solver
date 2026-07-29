@@ -1,0 +1,18 @@
+{
+  "name": "Re=500 upwind",
+  "scheme": "UD",
+  "reynolds_number": 500,
+  "classification": "near_steady",
+  "valid": true,
+  "final_step": 10000,
+  "final_residual": 1.1193e-6,
+  "residual_relative_tolerance": 0.2,
+  "max_abs_divergence": 1.0e-9,
+  "psi_min": 0.0,
+  "psi_max": 1.00109,
+  "psi_absolute_tolerance": 2.0e-3,
+  "field_relative_tolerance": 2.0e-4,
+  "field_absolute_tolerance": 2.0e-6,
+  "reference_psi_sha256": "affc0aa95e8604886eee65e1fad284643e07797b76cdeb860631ee53ed424dae",
+  "reference_div_sha256": "8cfee238c4157bea52f94d378aad9ae8de4ffacb14f666f3da23988e122861a2"
+}

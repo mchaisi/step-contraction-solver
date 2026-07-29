@@ -1,0 +1,9 @@
+{
+  "name": "Known false-convergence failure: Re=2000 central differencing",
+  "scheme": "CD",
+  "reynolds_number": 2000,
+  "classification": "failed",
+  "valid": false,
+  "expected_failure": "explosive residual growth followed by a zero residual and false convergence message",
+  "explosive_residual_threshold": 1.0e20
+}

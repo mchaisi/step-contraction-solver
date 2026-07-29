@@ -1,0 +1,18 @@
+{
+  "name": "Re=2000 upwind",
+  "scheme": "UD",
+  "reynolds_number": 2000,
+  "classification": "near_steady",
+  "valid": true,
+  "final_step": 3500,
+  "final_residual": 2.6232e-8,
+  "residual_relative_tolerance": 0.25,
+  "max_abs_divergence": 1.0e-8,
+  "psi_min": 0.0,
+  "psi_max": 1.00383,
+  "psi_absolute_tolerance": 2.0e-3,
+  "field_relative_tolerance": 2.0e-4,
+  "field_absolute_tolerance": 2.0e-6,
+  "reference_psi_sha256": "73f0920a01b4d888b5e56c0d8d83c1ad9e5044fe802761f2280b4a7abe5d3e16",
+  "reference_div_sha256": "8960c4c1a2d903f1e3f609e9e17b08079e504a1e30d72f5d6e0bd4e294df6709"
+}
