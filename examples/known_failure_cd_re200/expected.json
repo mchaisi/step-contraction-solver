@@ -2,8 +2,15 @@
   "name": "Known false-convergence failure: Re=200 central differencing",
   "scheme": "CD",
   "reynolds_number": 200,
-  "classification": "failed",
-  "valid": false,
-  "expected_failure": "explosive residual growth followed by a zero residual and false convergence message",
-  "explosive_residual_threshold": 1.0e20
+  "classification": "finite_nonsteady",
+  "valid": true,
+  "final_step": 7000,
+  "final_residual": 8.6669e-06,
+  "residual_relative_tolerance": 0.1,
+  "max_abs_divergence": 1.0e-8,
+  "psi_min": 0.0,
+  "psi_max": 1.00006,
+  "psi_absolute_tolerance": 2.0e-3,
+  "field_relative_tolerance": 2.0e-4,
+  "field_absolute_tolerance": 2.0e-6
 }

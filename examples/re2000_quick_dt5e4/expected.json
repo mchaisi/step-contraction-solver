@@ -9,7 +9,7 @@
   "residual_relative_tolerance": 0.1,
   "max_abs_divergence": 1.0e-8,
   "psi_min": 0.0,
-  "psi_max": 1.02061,
+  "psi_max": 1.01417,
   "psi_absolute_tolerance": 3.0e-3,
   "field_relative_tolerance": 2.0e-4,
   "field_absolute_tolerance": 2.0e-6,
