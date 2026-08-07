@@ -12,3 +12,8 @@ Separation*.PsiMax
 *~
 *.swp
 .DS_Store
+
+# Generated validation and run directories
+runs/
+__pycache__/
+*.py[cod]

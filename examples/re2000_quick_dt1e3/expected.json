@@ -5,14 +5,14 @@
   "valid": true,
   "classification": "finite_nonsteady",
   "final_step": 7000,
-  "final_residual": 5.9801e-1,
+  "final_residual": 0.59801,
   "residual_relative_tolerance": 0.1,
-  "max_abs_divergence": 1.0e-8,
+  "max_abs_divergence": 1e-08,
   "psi_min": 0.0,
   "psi_max": 1.02061,
-  "psi_absolute_tolerance": 3.0e-3,
-  "field_relative_tolerance": 2.0e-4,
-  "field_absolute_tolerance": 2.0e-6,
-  "reference_psi_sha256": "1bdfb5c65bbf642a3f762a23f15f18618390636c19a45c650bfe13dddce61405",
-  "reference_div_sha256": "b761e82fbde04967597bd05ef492ee4221dc31710d7df220d671622b91c89873"
+  "psi_absolute_tolerance": 0.003,
+  "field_relative_tolerance": 0.0002,
+  "field_absolute_tolerance": 2e-06,
+  "reference_psi_sha256": "1badb3708ce7d143d29086bbf337f4394763a1bf059c9ca1ee658a5c6cdaf13d",
+  "reference_div_sha256": "3cb6542a94321b830b879ee5c93e72d64ee58f65f693aaa23f3d7981f6103617"
 }

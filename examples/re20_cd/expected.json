@@ -5,14 +5,14 @@
   "classification": "near_steady",
   "valid": true,
   "final_step": 7000,
-  "final_residual": 5.1363e-6,
+  "final_residual": 5.1363e-06,
   "residual_relative_tolerance": 0.15,
-  "max_abs_divergence": 1.0e-9,
+  "max_abs_divergence": 1e-09,
   "psi_min": 0.0,
   "psi_max": 1.00003,
-  "psi_absolute_tolerance": 1.0e-3,
-  "field_relative_tolerance": 1.0e-4,
-  "field_absolute_tolerance": 1.0e-6,
-  "reference_psi_sha256": "9e9676175f21fd371ddf9084a7bc5f7a56d22428384796c54133c706e02088d0",
-  "reference_div_sha256": "020c17e6709703825cae365fdad33c04430c1e488118799b0f89a0999d9fe05d"
+  "psi_absolute_tolerance": 0.001,
+  "field_relative_tolerance": 0.0001,
+  "field_absolute_tolerance": 1e-06,
+  "reference_psi_sha256": "a394edae391fe5548b61c6ec2ec2f53ff555336d20b2e79912795582ae2c0dbd",
+  "reference_div_sha256": "9707d1b3c4229e11b193eaa583b9f446114b69fcabbf06064a1ab8df0a230984"
 }

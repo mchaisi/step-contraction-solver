@@ -157,7 +157,11 @@ changes to the numerical method.
 - Checkpoints are compiler-dependent unformatted files.
 - The legacy convergence test can print false convergence after overflow;
   always use the supplied validation tools.
-- An explicit open-source license must be selected before public release.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt)
+for the full text.
 
 ## Citation and support
 
