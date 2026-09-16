@@ -5,6 +5,12 @@ source in `src/step.f` is preserved from the recovered 1995 source; changes
 listed below concern packaging, documentation, validation, and post-processing
 unless explicitly stated otherwise.
 
+## v1.0.3 (2026-09-17)
+
+- Corrected the MIT license copyright holder to Mosa Chaisi.
+- Prepared as a maintenance release so the corrected license is included in
+  the archived software package.
+
 ## v1.0.2 (2026-09-16)
 
 - Completed the reviewer revision package with archived reference outputs for
