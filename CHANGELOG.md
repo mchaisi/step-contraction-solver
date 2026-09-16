@@ -5,6 +5,14 @@ source in `src/step.f` is preserved from the recovered 1995 source; changes
 listed below concern packaging, documentation, validation, and post-processing
 unless explicitly stated otherwise.
 
+## v1.0.2 (2026-09-16)
+
+- Completed the reviewer revision package with archived reference outputs for
+  the example suite.
+- Added reproducible publication figure generation and PDF figure outputs.
+- Added the MIT license and finalized release documentation.
+- Added Makefile targets for tests, validation, and figure generation.
+
 ## v1.0.1 (2026-09-16)
 
 - Added a reproducible build using `Makefile`.

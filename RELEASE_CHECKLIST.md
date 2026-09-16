@@ -8,11 +8,12 @@
 - [x] Added figure-reproduction instructions.
 - [x] Added VTK/CSV post-processing export.
 - [x] Added teaching and extension guidance.
-- [x] Added citation metadata for the proposed v1.0.1 release.
+- [x] Added citation metadata for the proposed v1.0.2 release.
 - [x] Select and add an explicit open-source license.
-- [ ] Create a version tag and archival DOI.
-- [ ] Verify compilation and examples on a machine with `gfortran`, BLAS, and
+- [x] Create the `v1.0.2` version tag.
+- [ ] Create an archival DOI.
+- [x] Verify compilation and examples on a machine with `gfortran`, BLAS, and
       LAPACK.
-- [ ] Add archived output files for all examples in `examples/` so validation is complete.
+- [x] Add archived output files for all examples in `examples/` so validation is complete.
 - [x] Verify compilation and examples on a machine with `gfortran`, BLAS, and
       LAPACK.
