@@ -10,7 +10,7 @@ step: src/step.f
 	$(FC) $(FFLAGS) -o step src/step.f $(LDLIBS)
 
 test:
-	python3 -m unittest tests/test_check_outputs.py
+	python3 -m unittest discover -s tests -p 'test_*.py'
 
 validate:
 	python3 scripts/validate_examples.py
