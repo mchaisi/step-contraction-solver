@@ -5,5 +5,7 @@
   "classification": "failed",
   "valid": false,
   "expected_failure": "explosive residual growth followed by a zero residual and false convergence message",
-  "explosive_residual_threshold": 1.0e20
+  "explosive_residual_threshold": 1e+20,
+  "reference_psi_sha256": "9c4007e2cb8754e8e77fb7e18a47ec8899f8061927624b91056947519f3b7fe7",
+  "reference_div_sha256": "093ac7c523ea0034ededdd3089dd71e481b507d6ead18c2da308325b1ff92d6"
 }

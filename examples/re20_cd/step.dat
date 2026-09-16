@@ -1,0 +1,44 @@
+! Data input for Step program
+! ===========================
+! Format is
+!   keyword value
+! where the keyword must be in upper case.
+!
+!
+! method=0 Stokes
+!        1 Navier-Stokes central differencing
+!        2 Navier-Stokes upwind differencing
+!        3 Navier-Stokes QUICK scheme
+! Xm    - half length of channel
+! h     - height of entry channel upstream
+! X     - number of pressure cells along x-axis
+! Y     - number of pressure cells along y-axis
+! dt    - time step
+! eps   - convergence test criteria
+! nu    - kinematical viscosity
+! gamma - contraction ratio of channel (upstream entry/downstream exit)
+
+METHOD 1
+XM 2.0
+H 1.0
+X 120
+Y 30
+DT 1.0e-3
+EPS 1.0e-8
+NU 1.0
+RE 20.0
+GAMMA 2
+MAXSTEP 7000
+IINFO 1
+
+!CHECKIN ./RE200/step2.CP.120x30
+!CHECKOUT ./RE200/step2.CP.120x30
+
+UOUT step2-u.dat
+VOUT step2-v.dat
+POUT step2-p.dat
+PSIOUT step2-psi.dat
+DIVOUT step2-div.dat
+SEPPSIMAX Separation2.PsiMax
+WVORT Wall2dws.vorticity
+

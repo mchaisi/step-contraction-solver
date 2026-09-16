@@ -188,6 +188,11 @@ changes to the numerical method.
   always use the supplied validation tools.
 - The package is distributed under the MIT License.
 
+## License
+
+This project is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt)
+for the full text.
+
 ## Citation and support
 
 Support: `mchaisi@wsu.ac.za`.

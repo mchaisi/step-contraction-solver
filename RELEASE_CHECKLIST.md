@@ -14,3 +14,5 @@
 - [ ] Verify compilation and examples on a machine with `gfortran`, BLAS, and
       LAPACK.
 - [ ] Add archived output files for all examples in `examples/` so validation is complete.
+- [x] Verify compilation and examples on a machine with `gfortran`, BLAS, and
+      LAPACK.

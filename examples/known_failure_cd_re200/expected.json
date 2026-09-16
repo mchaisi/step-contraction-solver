@@ -7,10 +7,12 @@
   "final_step": 7000,
   "final_residual": 8.6669e-06,
   "residual_relative_tolerance": 0.1,
-  "max_abs_divergence": 1.0e-8,
+  "max_abs_divergence": 1e-08,
   "psi_min": 0.0,
   "psi_max": 1.00006,
-  "psi_absolute_tolerance": 2.0e-3,
-  "field_relative_tolerance": 2.0e-4,
-  "field_absolute_tolerance": 2.0e-6
+  "psi_absolute_tolerance": 0.002,
+  "field_relative_tolerance": 0.0002,
+  "field_absolute_tolerance": 2e-06,
+  "reference_psi_sha256": "566d6fb744d965fd944646f1b254d5dc453ceffad860cb2c51df160bc1ee1039",
+  "reference_div_sha256": "ce7d9b0a9a24694e9a9e95934c3bab1f9129bcec19f35423cfaa288fd1be4e44"
 }
