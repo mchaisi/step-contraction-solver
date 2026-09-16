@@ -7,6 +7,12 @@
 Finite Volume Method*. `original/step-1995.dat` is an archived input file from
 the same source collection.
 
+## Archived release
+
+The reproducible `v1.0.2` software release is archived on Zenodo:
+
+https://doi.org/10.5281/zenodo.22801126
+
 ## Numerical source comparison
 
 At preparation of this release, `src/step.f` is byte-for-byte identical to

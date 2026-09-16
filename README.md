@@ -195,6 +195,14 @@ for the full text.
 
 ## Citation and support
 
+Please cite the archived software release as:
+
+> Chaisi, M. (2026). *mchaisi/step-contraction-solver: v1.0.2* [Computer
+> software]. Zenodo. https://doi.org/10.5281/zenodo.22801126
+
+The DOI resolves to the archived `v1.0.2` release and its reproducibility
+package.
+
 Support: `mchaisi@wsu.ac.za`.
 
 Please cite the associated software article and the 1995 MSc dissertation once

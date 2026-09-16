@@ -12,6 +12,8 @@ unless explicitly stated otherwise.
 - Added reproducible publication figure generation and PDF figure outputs.
 - Added the MIT license and finalized release documentation.
 - Added Makefile targets for tests, validation, and figure generation.
+- Archived the `v1.0.2` release on Zenodo at
+  https://doi.org/10.5281/zenodo.22801126.
 
 ## v1.0.1 (2026-09-16)
 

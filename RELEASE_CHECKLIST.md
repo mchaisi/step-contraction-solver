@@ -11,7 +11,7 @@
 - [x] Added citation metadata for the proposed v1.0.2 release.
 - [x] Select and add an explicit open-source license.
 - [x] Create the `v1.0.2` version tag.
-- [ ] Create an archival DOI.
+- [x] Create the archival DOI: https://doi.org/10.5281/zenodo.22801126
 - [x] Verify compilation and examples on a machine with `gfortran`, BLAS, and
       LAPACK.
 - [x] Add archived output files for all examples in `examples/` so validation is complete.
