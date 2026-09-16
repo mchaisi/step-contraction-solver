@@ -14,7 +14,11 @@ if [ ! -f "step" ]; then
 fi
 
 mkdir -p "$run_dir"
-cp "$example_dir/step.dat" "$run_dir/step.dat"
+if [ -f "$example_dir/step.dat" ]; then
+  cp "$example_dir/step.dat" "$run_dir/step.dat"
+else
+  python3 scripts/generate_example_input.py "$example_dir" "$run_dir/step.dat"
+fi
 cp step "$run_dir/step"
 
 (

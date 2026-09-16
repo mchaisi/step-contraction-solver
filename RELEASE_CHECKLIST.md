@@ -8,8 +8,9 @@
 - [x] Added figure-reproduction instructions.
 - [x] Added VTK/CSV post-processing export.
 - [x] Added teaching and extension guidance.
-- [x] Added citation metadata for the proposed v1.0.0 release.
-- [ ] Select and add an explicit open-source license.
+- [x] Added citation metadata for the proposed v1.0.1 release.
+- [x] Select and add an explicit open-source license.
 - [ ] Create a version tag and archival DOI.
 - [ ] Verify compilation and examples on a machine with `gfortran`, BLAS, and
       LAPACK.
+- [ ] Add archived output files for all examples in `examples/` so validation is complete.

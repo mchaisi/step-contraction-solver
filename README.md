@@ -9,6 +9,15 @@ The numerical source is preserved unchanged from the recovered 1995 source.
 The modern repository adds reproducible builds, reference examples, validation,
 documentation, tests, plotting, and ParaView/CSV export around that source.
 
+## Prerequisites
+
+Install the Python dependencies for validation and figure generation:
+
+```sh
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+```
+
 ## Repository contents
 
 ```text
@@ -46,6 +55,19 @@ Build and run the short smoke test:
 ```sh
 make
 ./run.sh
+```
+
+Run unit tests and validation:
+
+```sh
+make test
+make validate
+```
+
+Regenerate publication figures:
+
+```sh
+make figures
 ```
 
 The smoke-test outputs are written to `runs/default/` and checked for finite
@@ -95,13 +117,20 @@ See [examples/README.md](examples/README.md) and
 ## Figure reproduction
 
 All plotted residual histories and streamfunction fields used by the figure
-script are stored under `examples/`:
+script are intended to be stored under `examples/` in archived reference runs.
 
 ```sh
 make figures
 ```
 
 This regenerates PNG and PDF versions in `figures/`.
+
+> Note: the current `examples/` directories contain expected metadata files,
+> but not all archived run outputs. Full example validation requires the
+> corresponding `run.log`, `step2-psi.dat`, and `step2-div.dat` files to be
+> present in each example folder.
+> When example archives are missing, `scripts/validate_examples.py` will also
+> validate against existing `runs/<example>` output directories when available.
 
 ## ParaView and spreadsheet export
 
@@ -157,7 +186,7 @@ changes to the numerical method.
 - Checkpoints are compiler-dependent unformatted files.
 - The legacy convergence test can print false convergence after overflow;
   always use the supplied validation tools.
-- An explicit open-source license must be selected before public release.
+- The package is distributed under the MIT License.
 
 ## Citation and support
 

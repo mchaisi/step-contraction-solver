@@ -9,6 +9,17 @@ c
 c The convection term is modelled using central differencing, upwinding or
 c the QUICK scheme.
 c
+c Numerical contract and indexing:
+c   X and Y are the pressure-cell counts in the full upstream rectangle; the
+c   downstream rectangle contains Y/gamma rows. Pressure unknowns are numbered
+c   by row and then column, with the downstream block appended after the
+c   upstream block. Velocity arrays have one extra staggered-face index in
+c   each direction. Matrix assembles the pressure Poisson operator,
+c   UV_Stars computes the predictor, Rhs_Column forms its divergence, and
+c   UV_n_plus_1 applies the pressure correction. The boundary conditions in
+c   bc and the index ranges in Matrix and UV_Stars jointly define the supported
+c   contraction geometry.
+c
 c ================================================================   
 c
       MODULE Global_Var   ! For global variables and constants
@@ -28,6 +39,8 @@ c
 c
 c =================================================================
 c
+c Read step.dat, derive dx and dy, and validate the divisibility
+c assumptions used by the staggered-grid index expressions.
       SUBROUTINE Input_Data
          USE Global_Var
          INTEGER :: ilin,len
@@ -195,6 +208,10 @@ c
 c ===============================================================
 c
       SUBROUTINE Matrix
+c     Assemble the finite-volume pressure Poisson matrix for the symmetric
+c     contraction. Boundary rows omit blocked neighbours; link-cell rows
+c     connect the upstream and downstream blocks below the step. A(1,1)=1
+c     fixes the otherwise arbitrary pressure reference level.
         USE Global_Var 
 c
         A=0.0       ! to set all entries in A to zero
@@ -1023,7 +1040,7 @@ c
 c Named the rhs p because LAPACK will overwrite the rhs matrix & return 
 c result under this name. We initially set all entries in p to zero.
 c
-       SUBROUTINE Rhs_Column
+      SUBROUTINE Rhs_Column
         USE Global_Var
         DOUBLE PRECISION :: ue,uw,vn,vs
 c
@@ -1068,7 +1085,7 @@ c
 c
 c ========================================================================
 c
-       SUBROUTINE UV_n_plus_1
+      SUBROUTINE UV_n_plus_1
          USE Global_Var
 c
 c \\\\\\\\\\\\\\\\\\\\\\ left of step (begin)
@@ -1123,7 +1140,7 @@ c
 c
 c ======================================================================== 
 c
-       SUBROUTINE Calc_Psi
+      SUBROUTINE Calc_Psi
           USE Global_Var
           do i=1,X+1
             psi(i,1)=0.0
@@ -1142,7 +1159,7 @@ c          ENDDO
 c
 c ======================================================================== 
 c
-       SUBROUTINE Calc_Div
+      SUBROUTINE Calc_Div
           USE Global_Var
           do j=1,Y
             do i=1,X/2

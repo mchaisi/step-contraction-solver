@@ -7,6 +7,15 @@ step
 step2-*.dat
 Wall2dws.vorticity
 Separation*.PsiMax
+run.log
+runs/*
+!runs/default/
+!runs/default/run.log
+!runs/default/step.dat
+
+# Python bytecode and local test caches
+__pycache__/
+*.py[cod]
 
 # Temporary or editor files
 *~

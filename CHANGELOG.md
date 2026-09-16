@@ -5,7 +5,7 @@ source in `src/step.f` is preserved from the recovered 1995 source; changes
 listed below concern packaging, documentation, validation, and post-processing
 unless explicitly stated otherwise.
 
-## Unreleased
+## v1.0.1 (2026-09-16)
 
 - Added a reproducible build using `Makefile`.
 - Added isolated execution through `run.sh` and `scripts/run_example.sh`.
