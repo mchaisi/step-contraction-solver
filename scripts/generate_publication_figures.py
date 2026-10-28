@@ -6,7 +6,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import BoundaryNorm, ListedColormap
+from matplotlib.patches import Patch, Rectangle
 
 from check_outputs import parse_log
 
@@ -124,14 +124,25 @@ def main() -> int:
 
     # QUICK residual histories by Reynolds number.
     plt.figure(figsize=(5.8, 3.4))
-    for key, label in (
-        ("quick20", r"Re=20"),
-        ("quick500", r"Re=500"),
-        ("quick2000", r"Re=2000, $\Delta t=10^{-3}$"),
-        ("quick2000small", r"Re=2000, $\Delta t=5\times10^{-4}$"),
+    for key, label, linestyle, marker in (
+        ("quick20", r"Re=20", "-", "o"),
+        ("quick500", r"Re=500", "--", "s"),
+        ("quick2000", r"Re=2000, $\Delta t=10^{-3}$", "-.", "^"),
+        ("quick2000small", r"Re=2000, $\Delta t=5\times10^{-4}$", ":", "D"),
     ):
         steps, residuals = residual_history(key)
-        plt.semilogy(steps, residuals, label=label, linewidth=1.15)
+        plt.semilogy(
+            steps,
+            residuals,
+            label=label,
+            linewidth=1.15,
+            linestyle=linestyle,
+            marker=marker,
+            markevery=max(1, len(steps) // 14),
+            markersize=2.8,
+            markerfacecolor="white",
+            markeredgewidth=0.7,
+        )
     plt.axhline(1e-8, color="0.4", linestyle=":", linewidth=1)
     plt.xlabel("Time step")
     plt.ylabel(r"max($u$ residual, $v$ residual)")
@@ -158,27 +169,70 @@ def main() -> int:
         previous = outcomes.get(key, "not_run")
         if status_order[status] > status_order[previous]:
             outcomes[key] = status
-    colors = ["#eeeeee", "#3b8f5a", "#e6a23c", "#c94c4c"]
-    grid = np.zeros((len(reynolds), len(schemes)))
+    status_styles = {
+        "not_run": {"facecolor": "white", "hatch": "---"},
+        "near_steady": {"facecolor": "0.93", "hatch": "///"},
+        "finite_nonsteady": {"facecolor": "0.78", "hatch": "..."},
+        "failed": {"facecolor": "0.60", "hatch": "xxx"},
+    }
     labels = [[status_labels["not_run"] for _ in schemes] for _ in reynolds]
     for (scheme, reynolds_number), status in outcomes.items():
         row = reynolds.index(reynolds_number)
         column = schemes.index(scheme)
-        grid[row, column] = status_order[status]
         labels[row][column] = status_labels[status]
     figure, axis = plt.subplots(figsize=(5.6, 3.2))
-    norm = BoundaryNorm(np.arange(-0.5, 4.5, 1), len(colors))
-    axis.imshow(grid, cmap=ListedColormap(colors), norm=norm, aspect="auto")
+    for row in range(len(reynolds)):
+        for column in range(len(schemes)):
+            status = next(
+                (
+                    value
+                    for (scheme, reynolds_number), value in outcomes.items()
+                    if scheme == schemes[column] and reynolds_number == reynolds[row]
+                ),
+                "not_run",
+            )
+            axis.add_patch(
+                Rectangle(
+                    (column - 0.5, row - 0.5),
+                    1,
+                    1,
+                    edgecolor="0.2",
+                    linewidth=0.8,
+                    **status_styles[status],
+                )
+            )
+            axis.text(
+                column,
+                row,
+                labels[row][column].replace(" ", "\n"),
+                ha="center",
+                va="center",
+                fontsize=8,
+            )
     axis.set_xticks(range(len(schemes)), schemes)
     axis.set_yticks(range(len(reynolds)), [str(value) for value in reynolds])
     axis.set_xlabel("Convection scheme")
-    axis.set_ylabel("Reynolds number")
+    axis.set_ylabel("Input Reynolds number")
     axis.set_title("Reproduced-run outcomes")
-    for row in range(len(reynolds)):
-        for column in range(len(schemes)):
-            axis.text(column, row, labels[row][column].replace(" ", "\n"), ha="center", va="center", fontsize=8)
-    for spine in axis.spines.values():
-        spine.set_visible(True)
+    axis.set_xlim(-0.5, len(schemes) - 0.5)
+    axis.set_ylim(len(reynolds) - 0.5, -0.5)
+    legend_handles = [
+        Patch(
+            facecolor=style["facecolor"],
+            edgecolor="0.2",
+            hatch=style["hatch"],
+            label=status_labels[status],
+        )
+        for status, style in status_styles.items()
+    ]
+    axis.legend(
+        handles=legend_handles,
+        frameon=False,
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.23),
+        ncol=2,
+        fontsize=8,
+    )
     savefig("outcome_map")
 
     # Ensure parsing remains valid for each plotted run.
